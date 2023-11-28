@@ -98,8 +98,12 @@ Variant Variant::apply(const std::vector<Variant>& args) {
     if (type == Proc && proc != nullptr) {
         return proc(args);
     } else {
-       
+
         std::cerr << "Error: No se puede aplicar el procedimiento." << std::endl;
         return Variant();
     }
+}
+void Variant::setEnvironment(Entorno* environment) {
+    // Establecer el entorno para el objeto Variant
+    env = environment;
 }

@@ -31,3 +31,22 @@ public:
     static Variant parse_json(jsonlib::Json job);
     Variant apply(const std::vector<Variant>& args);
     void setEnvironment(Entorno* environment);
+    }
+
+        std::string Variant::to_string() {
+    
+    switch (type) {
+        case Symbol:
+            return val;
+        case Number:
+            return std::to_string(std::stod(val));
+        case List:
+            // Implementa la conversión de la lista a cadena
+            break;
+        case Proc:
+            // Implementa la conversión del procedimiento a cadena
+            break;
+            // Agrega casos para otros tipos si es necesario
+    }
+    return "Unknown Type";
+}

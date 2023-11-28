@@ -90,8 +90,16 @@ Variant Variant::parse_json(jsonlib::Json job) {
             result.list.push_back(parse_json(item));
         }
     } else if (job.is_object()) {
-        
+
     }
     return result;
 }
+Variant Variant::apply(const std::vector<Variant>& args) {
+    if (type == Proc && proc != nullptr) {
+        return proc(args);
+    } else {
+       
+        std::cerr << "Error: No se puede aplicar el procedimiento." << std::endl;
+        return Variant();
+    }
 }

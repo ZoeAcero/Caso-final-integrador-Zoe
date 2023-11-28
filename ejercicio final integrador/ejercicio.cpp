@@ -70,3 +70,8 @@ std::string Variant::to_json_string() {
     }
     return jsonObj.dump();
 }
+Variant Variant::from_json_string(const std::string& sjson) {
+    
+    jsonlib::Json json = jsonlib::Json::parse(sjson);
+    return parse_json(json);
+}

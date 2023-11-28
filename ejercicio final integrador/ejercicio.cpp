@@ -107,3 +107,22 @@ void Variant::setEnvironment(Entorno* environment) {
     // Establecer el entorno para el objeto Variant
     env = environment;
 }
+
+int main() {
+    // Ejemplo de uso
+    Variant symbolVariant(Symbol, "example");
+    Variant numberVariant(Number, "42.5");
+    Variant listVariant(List);
+    listVariant.list.push_back(symbolVariant);
+    listVariant.list.push_back(numberVariant);
+
+    std::cout << "Symbol: " << symbolVariant.to_string() << std::endl;
+    std::cout << "Number: " << numberVariant.to_string() << std::endl;
+    std::cout << "List: " << listVariant.to_string() << std::endl;
+
+    std::string jsonStr = "{\"type\":\"Symbol\",\"val\":\"example\"}";
+    Variant jsonVariant = Variant::from_json_string(jsonStr);
+    std::cout << "From JSON: " << jsonVariant.to_string() << std::endl;
+
+    return 0;
+}

@@ -34,7 +34,7 @@ public:
     }
 
         std::string Variant::to_string() {
-    
+
     switch (type) {
         case Symbol:
             return val;
@@ -49,4 +49,24 @@ public:
             // Agrega casos para otros tipos si es necesario
     }
     return "Unknown Type";
+}
+
+std::string Variant::to_json_string() {
+    jsonlib::Json jsonObj;
+    switch (type) {
+        case Symbol:
+            jsonObj = val;
+            break;
+        case Number:
+            jsonObj = std::stod(val);
+            break;
+        case List:
+
+            break;
+        case Proc:
+
+            break;
+            
+    }
+
 }

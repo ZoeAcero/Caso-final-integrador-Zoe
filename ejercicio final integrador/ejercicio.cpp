@@ -77,3 +77,21 @@ Variant Variant::from_json_string(const std::string& sjson) {
 }
 
 Variant Variant::parse_json(jsonlib::Json job) {
+    Variant result;
+    if (job.is_string()) {
+        result.type = Symbol;
+        result.val = job.string_value();
+    } else if (job.is_number()) {
+        result.type = Number;
+        result.val = std::to_string(job.number_value());
+    } else if (job.is_array()) {
+        result.type = List;
+        for (const auto& item : job.array_items()) {
+            result.list.push_back(parse_json(item));
+        }
+    } else if (job.is_object()) {
+        
+    }
+    return result;
+}
+}

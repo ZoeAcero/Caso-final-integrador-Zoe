@@ -1,11 +1,11 @@
 #include <iostream>
 #include <vector>
-#include <functional>
+#include <string>
+#include <map>
+#include "json11.hpp"
+#include "jsonlib.hpp"
 
+struct Entorno {
 
-enum class VariantType {
-    SYMBOL,
-    NUMBER,
-    LIST,
-    PROCEDURE
 };
+

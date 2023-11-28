@@ -66,7 +66,7 @@ std::string Variant::to_json_string() {
         case Proc:
 
             break;
-            
-    }
 
+    }
+    return jsonObj.dump();
 }
